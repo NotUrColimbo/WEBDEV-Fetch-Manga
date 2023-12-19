@@ -4,7 +4,9 @@
     border-width: thick;
     font-size: 90%;
     text-align: center;
-    width: auto;
+    width: 60%;
+    display: block;
+    margin-left: 20%;
 }
 
 .card{
@@ -50,4 +52,15 @@ body {
     top: 50%;
     text-align: center;
     font-size: 18px;
+}
+
+.manga-image {
+    display: block;
+    margin: 0 auto;
+    width: 200px;
+}
+
+.Detail {
+    margin-left: 10%;
+    margin-right: 10%;
 }

@@ -22,23 +22,17 @@ fetch ('https://api.mangadex.org/manga?limit=10&includes%5B%5D=cover_art')
         for (let i = 0; i <= 10; i++){
             const firstManga = data.data[i];
             let title = firstManga.attributes.title.en;
-            console.log(title)
-        
             let detail = firstManga.attributes.description.en;
-            console.log(detail)
-
             let mangaId = firstManga.id;
-            console.log(mangaId)
-
             let frontCover = firstManga.relationships[2].attributes.fileName;
-            console.log(frontCover)
         
+            
             mangaElement.innerHTML += `<div class="manga-card">
-                                    <h1>${title}</h1> 
-                                    <p>${detail}</p>
+                                    <h1 class="Title">${title}</h1> 
+                                    <p class="Detail">${detail}</p>
                                     <img class="manga-image" src="https://uploads.mangadex.org/covers/${mangaId}/${frontCover}">
                                     </div>`;
-            console.log(mangaElement)   
+            console.log(firstManga)   
         }
         manga = data.map(manga => {
             const card = dataManga.content.cloneNode(true).children[0]
@@ -54,6 +48,3 @@ fetch ('https://api.mangadex.org/manga?limit=10&includes%5B%5D=cover_art')
             return {title: manga.title, detail: manga.detail, element: card}
         });
     }) 
-    .catch((error) => {
-        console.error('Error fetching manga:', error);
-    })
